@@ -1,0 +1,70 @@
+.wrapper {
+   --search-border-radius: 92px;
+   --search-height: 46px;
+   --search-top-spacer: 9px;
+   --search-button-width: 52px;
+
+   height: var(--default-layout-header-height);
+   box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background-color: var(--white);
+   z-index: 10;
+}
+
+.inner {
+   height: 100%;
+   width: var(--default-layout-width);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0px var(--default-layout-horizontal-spacer);
+}
+
+.logo-link {
+   display: flex;
+}
+
+.actions {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0 16px;
+}
+
+.action-btn-upload {
+   border: 1px solid rgba(22, 24, 35, 0.12);
+   border-radius: 2px;
+   line-height: 2rem;
+   &:hover {
+      background-color: rgba(22, 24, 35, 0.03);
+   }
+}
+
+.action-btn {
+   line-height: 2rem;
+   color: rgba(22, 24, 35, 1);
+   background-color: transparent;
+   font-size: 2.6rem;
+   cursor: pointer;
+}
+
+.user-avatar {
+   width: 32px;
+   height: 32px;
+   object-fit: cover;
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+.more-btn {
+   margin-left: 24px;
+   background: transparent;
+   font-size: 2rem;
+   padding: 4px 8px;
+   cursor: pointer;
+}
