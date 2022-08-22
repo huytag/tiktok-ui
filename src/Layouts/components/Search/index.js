@@ -9,7 +9,7 @@ import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { useEffect, useState, useRef } from 'react';
 import { useDebounce } from '~/hook';
-import { searchService } from '~/apiServices/searchService';
+import { searchService } from '~/Services/searchService';
 
 const cx = classNames.bind(styles);
 function Search() {
@@ -18,24 +18,24 @@ function Search() {
    const [showResult, setShowResult] = useState(true);
    const [loading, setLoading] = useState(false);
 
-   const debounced = useDebounce(searchValue, 500);
+   const debouncedValue = useDebounce(searchValue, 500);
 
    const inputRef = useRef();
 
    useEffect(() => {
-      if (!debounced.trim()) {
+      if (!debouncedValue.trim()) {
          setSearchResult([]);
          return;
       }
 
       const fetchApi = async () => {
          setLoading(true);
-         const result = await searchService(debounced);
+         const result = await searchService(debouncedValue);
          setSearchResult(result);
          setLoading(false);
       };
       fetchApi();
-   }, [debounced]);
+   }, [debouncedValue]);
 
    const handleClearInput = () => {
       setSearchValue('');

@@ -25,7 +25,7 @@ import {
 import Image from '~/component/Image';
 import Search from '../Search';
 import { Link } from 'react-router-dom';
-import routes from '~/config/routes';
+import config from '~/config';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -124,7 +124,7 @@ function Header() {
    return (
       <header className={cx('wrapper')}>
          <div className={cx('inner')}>
-            <Link to={routes.home} className={cx('logo-link')}>
+            <Link to={config.routes.home} className={cx('logo-link')}>
                <img src={image.logo} alt="tiktok"></img>
             </Link>
             {/* search */}
@@ -146,6 +146,7 @@ function Header() {
 
                      <Tippy content="Notification" placement="bottom" delay={[0, 300]}>
                         <button className={cx('action-btn')}>
+                           <span className={cx('bell-btn')}>7</span>
                            <NotificationIcon width="3.2rem" height="3.2rem" />
                         </button>
                      </Tippy>

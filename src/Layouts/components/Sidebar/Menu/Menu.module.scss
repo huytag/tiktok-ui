@@ -1,0 +1,38 @@
+.wrapper {
+   padding-bottom: 8px;
+}
+
+.menu-item {
+   display: flex;
+   align-items: center;
+   gap: 0 8px;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 25px;
+   padding: 8px;
+   color: var(--text-color);
+   transition: background-color ease-in-out 200ms;
+   border-radius: 4px;
+   &.active {
+      color: var(--primary);
+      background-color: rgba(22, 24, 35, 0.03);
+      .icon {
+         display: none;
+      }
+      .active-icon {
+         display: flex;
+      }
+   }
+   &:hover {
+      background-color: rgba(22, 24, 35, 0.03);
+   }
+}
+
+.icon,
+.active-icon {
+   display: flex;
+}
+
+.active-icon {
+   display: none;
+}
