@@ -12,10 +12,26 @@ import {
    LIVEActiveIcon,
 } from '~/component/Icon';
 import SuggestedAccounts from '~/component/SuggestedAccounts/SuggestedAccounts';
+import { useEffect, useState } from 'react';
+import { accountService } from '~/Services/searchService';
+import { Discover } from './Discover';
 
 const cx = classNames.bind(styles);
 
 function SideBar() {
+   const [accountResult, setAccountResult] = useState([]);
+   const [followingResult, setFollowingResult] = useState([]);
+
+   useEffect(() => {
+      const fechApi = async () => {
+         const result = await accountService();
+         const result2 = await accountService('p', 'more');
+         setAccountResult(result);
+         setFollowingResult(result2);
+      };
+      fechApi();
+   }, []);
+
    return (
       <aside className={cx('wrapper')}>
          <Menu>
@@ -33,8 +49,9 @@ function SideBar() {
             />
             <MenuItem title="LIVE" to={config.routes.live} icon={<LIVEIcon />} activeIcon={<LIVEActiveIcon />} />
          </Menu>
-         <SuggestedAccounts label="Suggested accounts" />
-         <SuggestedAccounts label="Following accounts" />
+         <SuggestedAccounts accounts={accountResult} label="Suggested accounts" />
+         <SuggestedAccounts accounts={followingResult} label="Following accounts" />
+         <Discover />
       </aside>
    );
 }

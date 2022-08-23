@@ -1,0 +1,50 @@
+//discover
+
+.discover {
+   padding: 16px 8px 8px 8px;
+   border-top: 1px solid #e3e3e4;
+}
+
+.label {
+   color: rgba(22, 24, 35, 0.75);
+   font-weight: 600;
+   font-size: 1.4rem;
+   line-height: 20px;
+   padding-bottom: 16px;
+}
+
+.discover-list {
+   display: flex;
+   flex-wrap: wrap;
+   width: 100%;
+}
+.discover-item {
+   display: flex;
+   align-items: center;
+   max-width: 100%;
+   box-sizing: border-box;
+   width: fit-content;
+   height: 24px;
+   border-radius: 12px;
+   border: 1px solid rgba(22, 24, 35, 0.2);
+   transition: background-color 200ms ease-in-out 0s;
+   padding: 3px 10px;
+   margin-bottom: 12px;
+   margin-right: 8px;
+   &:hover {
+      background-color: rgba(22, 24, 35, 0.03);
+   }
+   svg {
+      display: inline-block;
+   }
+   p {
+      color: rgba(22, 24, 35, 0.75);
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      max-width: 280px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      padding-left: 6px;
+   }
+}
