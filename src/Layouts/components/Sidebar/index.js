@@ -13,25 +13,32 @@ import {
 } from '~/component/Icon';
 import SuggestedAccounts from '~/component/SuggestedAccounts/SuggestedAccounts';
 import { useEffect, useState } from 'react';
-import { accountService } from '~/Services/searchService';
 import { Discover } from './Discover';
+import { accountService } from '~/Services/SuggestedService';
 
 const cx = classNames.bind(styles);
 
+const initPage = 1;
+const perPage = 5;
+
 function SideBar() {
+   const [page, setPage] = useState(initPage);
    const [accountResult, setAccountResult] = useState([]);
    const [followingResult, setFollowingResult] = useState([]);
 
    useEffect(() => {
       const fechApi = async () => {
-         const result = await accountService();
-         const result2 = await accountService('p', 'more');
-         setAccountResult(result);
+         const result = await accountService(page, perPage);
+         const result2 = await accountService(3, perPage);
+         setAccountResult((prev) => [...prev, ...result]);
          setFollowingResult(result2);
       };
       fechApi();
-   }, []);
+   }, [page]);
 
+   const handleSeeAll = () => {
+      setPage(page + 1);
+   };
    return (
       <aside className={cx('wrapper')}>
          <Menu>
@@ -49,7 +56,7 @@ function SideBar() {
             />
             <MenuItem title="LIVE" to={config.routes.live} icon={<LIVEIcon />} activeIcon={<LIVEActiveIcon />} />
          </Menu>
-         <SuggestedAccounts accounts={accountResult} label="Suggested accounts" />
+         <SuggestedAccounts accounts={accountResult} label="Suggested accounts" onSeeAll={handleSeeAll} />
          <SuggestedAccounts accounts={followingResult} label="Following accounts" />
          <Discover />
       </aside>

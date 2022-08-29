@@ -94,13 +94,29 @@ body {
       font-size: 1.6rem;
       line-height: 2.2rem;
    }
+
    .tippy-arrow {
       color: rgba(84, 84, 84, 0.92);
    }
-   .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+
+   .tippy-box[data-placement^='bottom']>.tippy-arrow:before {
       top: -8px;
    }
+
    .tippy-content {
       padding: 8px 9px;
+   }
+}
+
+@media screen and (max-width: 1071px) {
+   :root {
+      --default-layout-width: 100%;
+   }
+}
+
+
+@media screen and (max-width: 480px) {
+   :root {
+      --default-layout-horizontal-spacer: 20px;
    }
 }

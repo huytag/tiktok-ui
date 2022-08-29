@@ -44,7 +44,7 @@ function AccountItem({ data }) {
                         </svg>
                      )}
                   </p>
-                  <p className={cx('name')}>{data.full_name}</p>
+                  <p className={cx('name')}>{`${data.first_name} ${data.last_name}`}</p>
                </div>
             </div>
          </Tippy>

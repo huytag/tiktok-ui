@@ -352,3 +352,11 @@ export const HashTagMusicIcon = ({ className, width = '1.6rem', height = '1.6rem
       />
    </svg>
 );
+
+export const BtnLikeCountIcon = ({ className, width = '2.4rem', height = '2.4rem' }) => (
+   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width={width} height={height} className={className}><use xlinkHref="#svg-heart-fill" /></svg>
+);
+
+export const BtnCommentCountIcon = ({ className, width = '2.4rem', height = '2.4rem' }) => (
+   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width={width} height={height} className={className}><use xlinkHref="#svg-ellipsis-right-fill" /></svg>
+);

@@ -16,6 +16,7 @@
    cursor: pointer;
    border-radius: 4px;
    transition: background-color 200ms ease-in-out 0s;
+
    &:hover {
       background-color: rgba(22, 24, 35, 0.03);
    }
@@ -31,6 +32,7 @@
 .item-info {
    flex-grow: 1;
    height: 32px;
+
    svg {
       margin-left: 4px;
    }
@@ -55,4 +57,13 @@
    font-weight: 700;
    color: rgb(254, 44, 85);
    cursor: pointer;
+}
+
+@media screen and (max-width: 1071px) {
+
+   .label,
+   .item-info,
+   .see-more {
+      display: none;
+   }
 }

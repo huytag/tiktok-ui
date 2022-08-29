@@ -13,16 +13,20 @@
    color: var(--text-color);
    transition: background-color ease-in-out 200ms;
    border-radius: 4px;
+
    &.active {
       color: var(--primary);
-      background-color: rgba(22, 24, 35, 0.03);
+
+      // background-color: rgba(22, 24, 35, 0.03);
       .icon {
          display: none;
       }
+
       .active-icon {
          display: flex;
       }
    }
+
    &:hover {
       background-color: rgba(22, 24, 35, 0.03);
    }
@@ -35,4 +39,10 @@
 
 .active-icon {
    display: none;
+}
+
+@media screen and (max-width: 1071px) {
+   .title {
+      display: none;
+   }
 }
